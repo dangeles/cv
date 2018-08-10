@@ -16,7 +16,7 @@
 
 \RequirePackage{graphicx}
 \RequirePackage[hyphens]{url}
-\RequirePackage[main=british]{babel}
+\RequirePackage{babel}
 \raggedright
 
 \RequirePackage{fontawesome}
@@ -36,7 +36,7 @@
 % If you're not a researcher nor an academic, you probably don't need biblatex; delete this line.
 \RequirePackage[backend=biber,bibstyle=apa,sorting=ymdnt,uniquename=init,
                 maxnames=7,defernumbers=true]{biblatex}
-\DeclareLanguageMapping{british}{british-apa}
+\DeclareLanguageMapping{english}{english-apa}
 
 %% Added 17 Jan 2018 from https://tex.stackexchange.com/a/140641/226 and
 %% https://tex.stackexchange.com/a/46879/226
@@ -138,25 +138,63 @@
 ( type=book or type=incollection )
 }
 
-\newcommand{\myname}[2]{%
+% \newcommand{\myname}[2]{%
+%    \def\@mylastname{#1}%
+%    \def\@myfirstname{#2}%
+% }
+
+\newcommand{\myname}[3]{%
    \def\@mylastname{#1}%
    \def\@myfirstname{#2}%
+   \def\@co{#3}%
 }
+
+
+% \renewcommand*{\mkbibnamefamily}[1]{%
+%   \ifboolexpr{ test {\ifdefstrequal{\namepartfamily}{\@mylastname}}
+%                and
+%                test {\ifdefstrequal{\namepartgiven}{\@myfirstname}}}
+%     {\textbf{#1}}%
+%     {#1}%
+% }
 
 \renewcommand*{\mkbibnamefamily}[1]{%
   \ifboolexpr{ test {\ifdefstrequal{\namepartfamily}{\@mylastname}}
                and
                test {\ifdefstrequal{\namepartgiven}{\@myfirstname}}}
     {\textbf{#1}}%
-    {#1}%
+    {
+    \ifboolexpr{ test {\ifdefstrequal{\namepartfamily}{\@co}}
+                 and
+                 test {\ifdefstrequal{\namepartgiven}{\@myfirstname}}}
+    {\textbf{#1}}%
+    {#1}
+    }%
 }
 
+
+% \renewcommand*{\mkbibnamegiven}[1]{%
+%   \ifboolexpr{ test {\ifdefstrequal{\namepartfamily}{\@mylastname}}
+%                and
+%                test {\ifdefstrequal{\namepartgiven}{\@myfirstname}}}
+%     {\textbf{#1}}%
+%     {#1}%
+% }
+
+
 \renewcommand*{\mkbibnamegiven}[1]{%
-  \ifboolexpr{ test {\ifdefstrequal{\namepartfamily}{\@mylastname}}
+\ifboolexpr{ test {\ifdefstrequal{\namepartfamily}{\@mylastname}}
+             and
+             test {\ifdefstrequal{\namepartgiven}{\@myfirstname}}}
+  {\textbf{#1}}%
+  {
+  \ifboolexpr{ test {\ifdefstrequal{\namepartfamily}{\@co}}
                and
                test {\ifdefstrequal{\namepartgiven}{\@myfirstname}}}
-    {\textbf{#1}}%
-    {#1}%
+  {\textbf{#1}}%
+  {#1}
+  }%
 }
+
 
 \RequirePackage[colorlinks=true,allcolors=black,breaklinks=true]{hyperref}
