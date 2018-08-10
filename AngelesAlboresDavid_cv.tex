@@ -17,16 +17,27 @@
   \usepackage[type1]{cabin}
   \usepackage[varqu,varl]{zi4}
   \usepackage{fontawesome}
+  \usepackage{lastpage}
+  \usepackage{fancyhdr}
+  \pagestyle{fancy}
+
   %% Comment out if you prefer lining figures rather than old style figures
-  \useosf
+  \useosf{}
 \fi
 \usepackage{csquotes}
+
+\fancyhf{} % sets both header and footer to nothing
+\renewcommand{\headrulewidth}{0pt}
+% Set the right side of the footer to be the page number
+\fancyfoot[R]{Angeles-Albores \thepage/\pageref{LastPage}}
+
 
 %% Only needed if you want a Publication List
 \addbibresource{own-bib.bib}
 \myname{Angeles-Albores}{David}
 
 % Change the page margins if you want
+% \setlength{\footskip}{9.6pt}
 % \geometry{left=1cm,right=1cm,top=1.5cm,bottom=1.5cm}
 
 % Change the colours if you want
@@ -88,6 +99,7 @@
 \makerubric{teaching}
 \makerubric{courses}
 \makerubric{outreach}
+\makerubric{societies}
 
 % references
 \input{referee-full}
