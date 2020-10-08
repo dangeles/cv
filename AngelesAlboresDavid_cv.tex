@@ -30,6 +30,14 @@
 \usepackage{csquotes}
 
 \fancyhf{}  % sets both header and footer to nothing
+\newcommand{\changefont}{%
+    \fontsize{9}{11}\selectfont
+}
+\fancyhead[LE,RO]{\changefont \slshape \rightmark} %section
+\fancyhead[RE,LO]{\changefont \slshape \leftmark} %chapter
+\fancyfoot[C]{\changefont \thepage} %footer
+
+
 \renewcommand{\headrulewidth}{0pt}  % remove ugly header line
 
 % Set the right side of the footer to be the page number
@@ -67,20 +75,15 @@
   {\LARGE\bfseries\sffamily David Angeles-Albores}
 
   \makefield{\faPhone}{\texttt{+1 607 379 4030}}
-  \makefield{\faEnvelopeO}{\texttt{dangeles@mit.edu}}
+  \makefield{\faEnvelopeO}{\texttt{davidaalbores@gmail.com}}
 
   \makefield{\faTwitter}{\texttt{@DavidAngeles13}}
   \makefield{\faGlobe}{\url{dangeles.github.io}}
 
   \makefield{\faGithub}{\url{https://github.com/dangeles}}
 
-  % \makefield{\faLinkedinSquare}
-  % {\url{https://www.linkedin.com/in/dangelesgenetics}}
-
-  \makefield{\faEnvelopeO}{77 Massachusetts Ave, Bldg NE47-309, Cambridge, MA
-                           02139}
+  \makefield{\faEnvelopeO}{47 Garden St, Apt 4, Boston, MA, 02114}
 }
-
 % photo
 \rightheader{~}
 \begin{fullonly}
