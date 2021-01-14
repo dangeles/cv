@@ -132,17 +132,16 @@
 
 \newcommand{\makerubrichead}[1]{\vskip\baselineskip\@@rubrichead{#1}}
 
+% BIBLIOGRAPHY:
+
 \defbibheading{subbibliography}{\vskip\subrubricbeforespace{\@subrubricfont\hspace{3pt}#1}\par}
 
 \defbibfilter{booksandchapters}{%
 ( type=book or type=incollection )
 }
 
-% \newcommand{\myname}[2]{%
-%    \def\@mylastname{#1}%
-%    \def\@myfirstname{#2}%
-% }
 
+% defines last name, first name and co-first (if applicable)
 \newcommand{\myname}[3]{%
    \def\@mylastname{#1}%
    \def\@myfirstname{#2}%
@@ -150,14 +149,7 @@
 }
 
 
-% \renewcommand*{\mkbibnamefamily}[1]{%
-%   \ifboolexpr{ test {\ifdefstrequal{\namepartfamily}{\@mylastname}}
-%                and
-%                test {\ifdefstrequal{\namepartgiven}{\@myfirstname}}}
-%     {\textbf{#1}}%
-%     {#1}%
-% }
-
+% defines how to type my name when I'm co-first
 \renewcommand*{\mkbibnamefamily}[1]{%
   \ifboolexpr{ test {\ifdefstrequal{\namepartfamily}{\@mylastname}}
                and
