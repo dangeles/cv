@@ -14,9 +14,9 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage[tracking=smallcaps]{microtype}
-\usepackage{fbb}
-\usepackage[type1]{cabin}
-\usepackage[varqu,varl]{zi4}
+\usepackage{fbb}  % sets libertine font
+% \usepackage[type1]{cabin}  % sets different font for headers
+% \usepackage[varqu,varl]{zi4}  % more fonts oh god.
 \usepackage{fontawesome}
 \usepackage{lastpage}
 \usepackage{fancyhdr}
@@ -33,6 +33,7 @@
 \newcommand{\changefont}{%
     \fontsize{9}{11}\selectfont
 }
+
 \fancyhead[LE,RO]{\changefont \slshape \rightmark} %section
 \fancyhead[RE,LO]{\changefont \slshape \leftmark} %chapter
 \fancyfoot[C]{\changefont \thepage} %footer
@@ -74,13 +75,13 @@
 \leftheader{%
   {\LARGE\bfseries\sffamily David Angeles-Albores}
 
-  \makefield{\faPhone}{\texttt{+1 607 379 4030}}
-  \makefield{\faEnvelopeO}{\texttt{davidaalbores@gmail.com}}
-
-  \makefield{\faTwitter}{\texttt{@DavidAngeles13}}
+  \makefield{\faPhone}{+1 607 379 4030}
+  \makefield{\faEnvelopeO}{davidaalbores@gmail.com}
+  % let's not include twitter:
+  % \makefield{\faTwitter}{DavidAngeles13}
+  % for now, let's also not include github
+  % \makefield{\faGithub}{\url{https://github.com/dangeles}}
   \makefield{\faGlobe}{\url{dangeles.github.io}}
-
-  \makefield{\faGithub}{\url{https://github.com/dangeles}}
 
   \makefield{\faEnvelopeO}{47 Garden St, Apt 4, Boston, MA, 02114}
 }
